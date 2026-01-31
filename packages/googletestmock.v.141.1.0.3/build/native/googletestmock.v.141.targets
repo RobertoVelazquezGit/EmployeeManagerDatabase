@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="googletestmock_v_141_init">
+  <PropertyGroup Label="Debug and static and RuntimeLibraryNull" Condition="( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 ) And '$(Linkage-googletestmock_v_141.ToLower())' == 'static' And ('$(RuntimeLibrary)' == '')">
+    <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+  </PropertyGroup>
+  <PropertyGroup Label="Release and static and RuntimeLibraryNull" Condition="( $(Configuration.ToLower().IndexOf('debug')) == -1 ) And '$(Linkage-googletestmock_v_141.ToLower())' == 'static' And ('$(RuntimeLibrary)' == '')">
+    <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+  </PropertyGroup>
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkage-googletestmock_v_141 Condition="'$(Linkage-googletestmock_v_141)' == ''">dynamic</Linkage-googletestmock_v_141>
+    <CallingConvention-googletestmock_v_141 Condition="'$(CallingConvention-googletestmock_v_141)' == ''">cdecl</CallingConvention-googletestmock_v_141>
+  </PropertyGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\googletestmock.v.141-propertiesui-5dbdc127-9561-41ed-bb94-a4e29bc1fba0.xml" />
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>HAS_GOOGLETESTMOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../..//build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="static" Condition="'$(Linkage-googletestmock_v_141.ToLower())' == 'static'">
+    <ClCompile>
+      <RuntimeLibrary>$(RuntimeLibrary)</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\Debug\gmock.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\Debug\gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="Win32 and Release" Condition="'$(Platform.ToLower())' == 'win32' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\Release\gmock.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\Release\gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and Debug" Condition="'$(Platform.ToLower())' == 'x64' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Debug\gmock.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Debug\gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Label="x64 and Release" Condition="'$(Platform.ToLower())' == 'x64' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
+    <Link>
+      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Release\gmock.lib;$(MSBuildThisFileDirectory)../..//build/native/lib/x64\Release\gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <UsingTask TaskName="googletestmock_v_141_Contains" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Text Output="false" ParameterType="System.String" />
+      <Library Output="false" Required="true" ParameterType="System.String" />
+      <Value Output="false" Required="true" ParameterType="System.String" />
+      <Result Output="true" ParameterType="System.String" />
+    </ParameterGroup>
+    <Task>
+      <Code>Result = ((Text ?? "").Split(';').Contains(Library) ) ? Value : String.Empty;</Code>
+    </Task>
+  </UsingTask>
+  <Target Name="googletestmock_v_141_init">
+    <googletestmock_v_141_Contains Text="Linkage-dynamic" Library="googletestmock_v_141" Value="dynamic" Condition="'$(Linkage-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="Linkage-static" Library="googletestmock_v_141" Value="static" Condition="'$(Linkage-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="Linkage-ltcg" Library="googletestmock_v_141" Value="ltcg" Condition="'$(Linkage-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="Linkage-sxs" Library="googletestmock_v_141" Value="sxs" Condition="'$(Linkage-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="CallingConvention-cdecl" Library="googletestmock_v_141" Value="cdecl" Condition="'$(CallingConvention-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="CallingConvention-stdcall" Library="googletestmock_v_141" Value="stdcall" Condition="'$(CallingConvention-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="CallingConvention-fastcall" Library="googletestmock_v_141" Value="fastcall" Condition="'$(CallingConvention-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="CallingConvention-thiscall" Library="googletestmock_v_141" Value="thiscall" Condition="'$(CallingConvention-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+    <googletestmock_v_141_Contains Text="CallingConvention-clrcall" Library="googletestmock_v_141" Value="clrcall" Condition="'$(CallingConvention-googletestmock_v_141)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-googletestmock_v_141" />
+    </googletestmock_v_141_Contains>
+  </Target>
+</Project>
