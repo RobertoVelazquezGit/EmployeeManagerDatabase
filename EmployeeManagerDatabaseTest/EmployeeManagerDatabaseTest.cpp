@@ -154,7 +154,9 @@ TEST(TestEmployeeManager, TestGetSalaryInRange)
     for (auto it = returnedMap.begin(); it != returnedMap.end(); ++it)
     {
         std::cout << it->first << " " << it->second << '\n';
-        ASSERT_THAT(it->second, testing::AnyOf(testing::Gt(low), testing::Lt(high - 3000)));
+        //ASSERT_THAT(it->second, testing::AnyOf(testing::Gt(low), testing::Lt(high - 3000)));  // pass
+        //ASSERT_THAT(it->second, testing::Gt(low + 1000));  // not pass
+		ASSERT_THAT(it->second, testing::AllOf(testing::Gt(low), testing::Lt(high - 1000)));  // not pass
     }
 }
 
