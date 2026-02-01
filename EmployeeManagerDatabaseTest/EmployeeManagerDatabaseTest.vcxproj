@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EmployeeManagerDatabaseTest.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmployeeManagerDatabaseLibrary\EmployeeManagerDatabaseLibrary.vcxproj">

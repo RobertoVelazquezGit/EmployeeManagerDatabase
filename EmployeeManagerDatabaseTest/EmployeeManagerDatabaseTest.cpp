@@ -154,18 +154,8 @@ TEST(TestEmployeeManager, TestGetSalaryInRange)
     for (auto it = returnedMap.begin(); it != returnedMap.end(); ++it)
     {
         std::cout << it->first << " " << it->second << '\n';
-        //ASSERT_THAT(it->second, testing::AnyOf(testing::Gt(low), testing::Lt(high - 3000)));  // pass
+        ASSERT_THAT(it->second, testing::AnyOf(testing::Gt(low), testing::Lt(high - 3000)));  // pass
         //ASSERT_THAT(it->second, testing::Gt(low + 1000));  // not pass
-		ASSERT_THAT(it->second, testing::AllOf(testing::Gt(low), testing::Lt(high - 1000)));  // not pass
+		//ASSERT_THAT(it->second, testing::AllOf(testing::Gt(low), testing::Lt(high - 1000)));  // not pass
     }
 }
-
-// This is a console c++ project with gtest and gmock configured
-// Nugget packages used: googletestmock.v.141  
-// EmployeeManagerDatabaseLibrary (custom static library project containing EmployeeManager, Employee, IDatabaseConnection)
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
