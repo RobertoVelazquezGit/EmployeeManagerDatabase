@@ -12,6 +12,7 @@
 class MockDatabaseConnection : public IDatabaseConnection
 {
 public:
+	
     MockDatabaseConnection(std::string serverAddress);
 
     //MOCK_METHODn n=0,10
@@ -159,3 +160,14 @@ TEST(TestEmployeeManager, TestGetSalaryInRange)
 		//ASSERT_THAT(it->second, testing::AllOf(testing::Gt(low), testing::Lt(high - 1000)));  // not pass
     }
 }
+
+void realCallback(int n, int m) {
+	std::cout << "In realCallback with values: " << n << ", " << m << "\n"; 
+}
+
+TEST(TestEmployeeManager, CallbackTest)
+{
+    MockDatabaseConnection dbConnection("dummyConnection");
+	dbConnection.setOnConnect(realCallback);    
+	dbConnection.connect();
+}   
