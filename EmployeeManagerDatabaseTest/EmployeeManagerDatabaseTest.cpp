@@ -168,6 +168,9 @@ void realCallback(int n, int m) {
 TEST(TestEmployeeManager, CallbackTest)
 {
     MockDatabaseConnection dbConnection("dummyConnection");
-	dbConnection.setOnConnect(realCallback);    
-	dbConnection.connect();
+    dbConnection.setOnConnect(realCallback);
+	//testing::MockFunction<void(int, int)> mockFunction;
+	//dbConnection.setOnConnect(mockFunction.AsStdFunction());    
+	//EXPECT_CALL(mockFunction, Call(5/*testing::_*/, 6/*testing::_*/));
+	dbConnection.connect();  // ToDo calling the mocked connect 
 }   

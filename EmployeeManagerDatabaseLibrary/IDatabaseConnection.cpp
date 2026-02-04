@@ -29,5 +29,6 @@ void IDatabaseConnection::disconnect()
 
 void IDatabaseConnection::setOnConnect(Callback onConnect)
 {
+	std::cout << "Setting onConnect callback\n";	
 	mOnConnect = onConnect;
 }	
