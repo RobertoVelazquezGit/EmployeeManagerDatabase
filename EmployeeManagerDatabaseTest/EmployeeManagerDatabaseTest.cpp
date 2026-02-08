@@ -16,14 +16,14 @@ public:
     MockDatabaseConnection(std::string serverAddress);
 
     //MOCK_METHODn n=0,10
-    MOCK_METHOD0(connect, void());  // MOCKMETHOD(void, connect, ())
-    MOCK_METHOD0(disconnect, void()); // MOCKMETHOD(void, disconnect, ())
+    MOCK_METHOD0(connect, void());  // MOCKMETHOD(void, connect, (), (override))
+    MOCK_METHOD0(disconnect, void()); // MOCKMETHOD(void, disconnect, (), (override))
 
-    MOCK_CONST_METHOD1(getSalary, float(int));  // MOCKMETHOD(float, getSalary, (int), (const) )      
-    MOCK_METHOD2(updateSalary, void(int, float)); // MOCKMETHOD(void, updateSalary, (int, float) )   
+    MOCK_CONST_METHOD1(getSalary, float(int));  // MOCKMETHOD(float, getSalary, (int), (const), (override) )      
+    MOCK_METHOD2(updateSalary, void(int, float)); // MOCKMETHOD(void, updateSalary, (int, float), (override) )   
 
-    MOCK_CONST_METHOD1(getSalariesRange, std::vector<Employee>(float));  // MOCKMETHOD(std::vector<Employee>, getSalariesRange, (float), (const) )
-    MOCK_CONST_METHOD2(getSalariesRange, std::vector<Employee>(float, float));  // MOCKMETHOD(std::vector<Employee>, getSalariesRange, (float, float), (const) )
+    MOCK_CONST_METHOD1(getSalariesRange, std::vector<Employee>(float));  // MOCKMETHOD(std::vector<Employee>, getSalariesRange, (float), (const), (override) )
+    MOCK_CONST_METHOD2(getSalariesRange, std::vector<Employee>(float, float));  // MOCKMETHOD(std::vector<Employee>, getSalariesRange, (float, float), (const), (override) )
 
     // Sintax if comma , MOCK_METHOD((std::map<std::string, float>), something, ()) 
 
@@ -208,3 +208,8 @@ TEST(TestEmployeeManager, LogsMessage)
     EmployeeManager employeeManager(&dbConnection);
     employeeManager.doWork();
 }
+
+// Seleccionaste la respuesta correcta porque la instrucción EXPECT_CALL(someObject, someMethod(5)).WillOnce(Return(10));
+// establece que el método someMethod solo devolverá 10 cuando se le llame específicamente con el argumento 5,
+// lo que resalta la importancia de los parámetros en las expectativas de las llamadas a métodos simulados.
+// ¡Bien hecho al identificar ese detalle clave!
