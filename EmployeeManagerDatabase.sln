@@ -11,6 +11,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EmployeeManagerDatabaseTest
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VectorsLibrary", "VectorsLibrary\VectorsLibrary.vcxproj", "{2347B0F0-5C0B-47FD-BB70-748FEFC6BA7C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CaculatorLib", "CaculatorLib\CaculatorLib.vcxproj", "{13733365-0E10-40A4-BC49-284CD471CE22}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CalculatorLibTest", "CalculatorLibTest\CalculatorLibTest.vcxproj", "{39FD3647-7345-4B23-B951-CAB65911BF18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +55,22 @@ Global
 		{2347B0F0-5C0B-47FD-BB70-748FEFC6BA7C}.Release|x64.Build.0 = Release|x64
 		{2347B0F0-5C0B-47FD-BB70-748FEFC6BA7C}.Release|x86.ActiveCfg = Release|Win32
 		{2347B0F0-5C0B-47FD-BB70-748FEFC6BA7C}.Release|x86.Build.0 = Release|Win32
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Debug|x64.ActiveCfg = Debug|x64
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Debug|x64.Build.0 = Debug|x64
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Debug|x86.ActiveCfg = Debug|Win32
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Debug|x86.Build.0 = Debug|Win32
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Release|x64.ActiveCfg = Release|x64
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Release|x64.Build.0 = Release|x64
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Release|x86.ActiveCfg = Release|Win32
+		{13733365-0E10-40A4-BC49-284CD471CE22}.Release|x86.Build.0 = Release|Win32
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Debug|x64.ActiveCfg = Debug|x64
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Debug|x64.Build.0 = Debug|x64
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Debug|x86.ActiveCfg = Debug|Win32
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Debug|x86.Build.0 = Debug|Win32
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Release|x64.ActiveCfg = Release|x64
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Release|x64.Build.0 = Release|x64
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Release|x86.ActiveCfg = Release|Win32
+		{39FD3647-7345-4B23-B951-CAB65911BF18}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
