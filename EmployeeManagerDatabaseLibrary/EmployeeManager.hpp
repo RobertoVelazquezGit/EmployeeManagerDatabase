@@ -17,10 +17,12 @@ public:
   
   std::map<std::string,float> getSalariesGreater(float low) const;
   std::map<std::string,float> getSalariesBetween(float low, float high) const;
+  void doWork();
   
 private:
   std::map<std::string, float> vectorToMap(std::vector<Employee> const& employees) const;
 
 private:
   IDatabaseConnection  *mDbConnection;
+  void privateLogic();
 };

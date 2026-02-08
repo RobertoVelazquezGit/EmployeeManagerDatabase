@@ -36,6 +36,11 @@ std::map<std::string, float> EmployeeManager::vectorToMap(std::vector<Employee> 
   return result;
 }
 
+void EmployeeManager::privateLogic()
+{
+    mDbConnection->log("Doing work");
+}
+
 std::map<std::string,float> EmployeeManager::getSalariesGreater(float low) const
 {
   return vectorToMap(mDbConnection->getSalariesRange(low));
@@ -44,4 +49,9 @@ std::map<std::string,float> EmployeeManager::getSalariesGreater(float low) const
 std::map<std::string,float> EmployeeManager::getSalariesBetween(float low, float high) const
 {
   return vectorToMap(mDbConnection->getSalariesRange(low, high));
+}
+
+void EmployeeManager::doWork()
+{
+    privateLogic();
 }

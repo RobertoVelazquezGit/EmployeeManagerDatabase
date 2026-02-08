@@ -32,6 +32,8 @@ public:
         std::cout << "Member method called with param = " << param << "\n";
         throw std::runtime_error("Dummy error!");
     }
+
+    MOCK_METHOD1(log, void(const std::string&));
 };
 
 MockDatabaseConnection::MockDatabaseConnection(std::string serverAddress) : IDatabaseConnection(serverAddress)
@@ -195,3 +197,14 @@ TEST(TestEmployeeManager, CallbackTest)
 }
 #endif
 
+TEST(TestEmployeeManager, LogsMessage)
+{
+    MockDatabaseConnection dbConnection("dummyConnection");
+
+    EXPECT_CALL(dbConnection, connect());
+    EXPECT_CALL(dbConnection, disconnect());
+    EXPECT_CALL(dbConnection, log("Doing work"));
+
+    EmployeeManager employeeManager(&dbConnection);
+    employeeManager.doWork();
+}

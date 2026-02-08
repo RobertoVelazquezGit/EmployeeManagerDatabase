@@ -25,6 +25,8 @@ public:
 	virtual void disconnect();
 	void setOnConnect(Callback onConnect);
 
+	virtual void log(const std::string& msg) = 0;
+
 protected:
 	std::string mServerAddress;
 	Callback mOnConnect;
